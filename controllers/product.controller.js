@@ -24,16 +24,24 @@ exports.product_create = function (req, res) {
 
 // READ product detail controller code
 exports.product_details = function (req, res) {
-    Product.findById(req.params.id, function (err, product) {
-        if (err) return next(err);
-        if (product) {
-        	res.send(product);
-        }
-        else
-        {
-        	res.send('Product not found!');
-        }
-    })
+	var id = req.params.id;
+	var hex = Buffer.from(id, 'hex')[0];
+	if(req.params.id.length!=24 || hex==null){
+		res.send('Bad Product ID!');
+	}
+	else
+	{
+	    Product.findById(req.params.id, function (err, product) {
+	        if (err) return next(err);
+	        if (product) {
+	        	res.send(product);
+	        }
+	        else
+	        {
+	        	res.send('Product not found!');
+	        }
+	    })
+	}
 };
 
 // UPDATE product data controller code
