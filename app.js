@@ -1,4 +1,4 @@
-// app.js
+// app.js - Main file for ProductsApp 
 const express = require('express');
 const bodyParser = require('body-parser');
 const product = require('./routes/product.route'); // Imports routes for the products
