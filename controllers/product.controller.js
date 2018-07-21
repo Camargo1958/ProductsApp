@@ -26,7 +26,13 @@ exports.product_create = function (req, res) {
 exports.product_details = function (req, res) {
     Product.findById(req.params.id, function (err, product) {
         if (err) return next(err);
-        res.send(product);
+        if (product) {
+        	res.send(product);
+        }
+        else
+        {
+        	res.send('Product not found!');
+        }
     })
 };
 

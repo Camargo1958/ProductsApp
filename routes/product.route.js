@@ -14,10 +14,10 @@ router.post('/create', product_controller.product_create);
 // READ product url
 router.get('/:id', product_controller.product_details);
 
-module.exports = router;
-
 // UPDATE product url
 router.put('/:id/update', product_controller.product_update);
 
 // DELETE product url
 router.delete('/:id/delete', product_controller.product_delete);
+
+module.exports = router;
